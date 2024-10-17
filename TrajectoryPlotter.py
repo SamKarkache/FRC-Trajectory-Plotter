@@ -4,6 +4,11 @@ import csv
 
 from IPython.core.pylabtools import figsize
 
+# TODO: Ability to input points (ex. barrels)
+# TODO: Underlay field image
+# TODO: Show the outline of the robot based on inputted robot dimensions
+# TODO: The angle of the robot should be the same as the angle in log file
+# TODO: add units, be able to swap units
 
 def plot_trajectory(log_path: str):
     x = []
@@ -30,6 +35,3 @@ def plot_trajectory(log_path: str):
     plt.ylabel('Y Position')
     plt.grid(True)
     plt.savefig(f'static/images/output.png')
-
-if __name__ == '__main__':
-    plot_trajectory("logfile.csv")
