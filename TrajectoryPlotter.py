@@ -20,7 +20,8 @@ def plot_trajectory(log_path: str):
     plt.title(f'Trajectory Path for {log_path}')
     plt.xlabel('X Position')
     plt.ylabel('Y Position')
-    plt.show()
+    plt.grid(True)
+    plt.savefig(f'static/images/output.png')
 
 
 if __name__ == "__main__":
