@@ -20,6 +20,10 @@ def upload():
     if request.method == 'POST':
         f = request.files['file']
         f.save(f.filename)
+        mode = request.form.get('mode')
+        name = request.form.get('description')
+        print(f"The name is: {name}")
+        print(f"The mode is: {mode}")
         try:
             plot_trajectory(f.filename)
         except Exception as e:

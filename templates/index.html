@@ -8,6 +8,11 @@
     <p><b>Upload Your Log File Here</b></p>
     <form action = "/upload" method = "POST" enctype="multipart/form-data">
         <input type= "file" name="file" />
+        <select id="mode" name="mode">
+            <option value="absolute">Absolute</option>
+            <option value="relative">Relative</option>
+        </select>
+        <input type="text" id="description" name="description" placeholder="Trajectory Name">
         <input type = "submit" value="Upload">
     </form>
 </body>
