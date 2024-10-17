@@ -9,9 +9,12 @@ def plot_trajectory(log_path: str):
     with open(log_path, newline='') as csvfile:
         csvreader = csv.reader(csvfile)
         for row in csvreader:
-            if row[1] == "DriveTrajectory" and row[2] != "Start" and row[2] != "Finish":
-                x.append(float(row[6]))
-                y.append(float(row[8]))
+            try:
+                if row[1] == "DriveTrajectory" and row[2] != "Start" and row[2] != "Finish":
+                    x.append(float(row[6]))
+                    y.append(float(row[8]))
+            except IndexError:
+                continue
 
     if len(x) == 0 or len(y) == 0:
         raise Exception(f'No Drive Trajectory data found in {log_path}')
@@ -22,7 +25,3 @@ def plot_trajectory(log_path: str):
     plt.ylabel('Y Position')
     plt.grid(True)
     plt.savefig(f'static/images/output.png')
-
-
-if __name__ == "__main__":
-    plot_trajectory("logfile.csv")
